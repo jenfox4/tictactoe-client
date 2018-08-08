@@ -1,24 +1,22 @@
-const findPositionOfX = function (gameBoard) {
-// find all the X's on the board
-  let positionOfX = []
-  // array of index position of X
-  let elementX = 'X'
-  // looking for the game piece X
-  let idx = gameBoard.indexOf(elementX)
+const findPosition = function (gameBoard, gamePiece) {
+//  gameBoard = game board you are playing, gamePiece = X or O's
+  const position = []
+  // array of index position of X or O
+  let idx = gameBoard.indexOf(gamePiece)
   while (idx !== -1) {
   // while X is found in the string (not -1), keep looking.
-    positionOfX.push(idx)
-    // if an x position is found, push to positionOfX array
-    idx = gameBoard.indexOf(elementX, idx + 1)
-    // find next position of x by starting the search from the last x + 1 index
-  } return positionOfX
+    position.push(idx)
+    // if a position is found, push to position array
+    idx = gameBoard.indexOf(gamePiece, idx + 1)
+    // find next position of x or o by starting the search from the last x + 1 index
+  } return position
 }
 
-const findPositionOfO = function (gameBoard) {
+/* const findPositionOfO = function (gameBoard) {
 // find all the O's on the board
-  let positionOfO = []
+  const positionOfO = []
   // array of index position of X
-  let elementO = 'O'
+  const elementO = 'O'
   // looking for the game piece X
   let idx = gameBoard.indexOf(elementO)
   while (idx !== -1) {
@@ -28,7 +26,7 @@ const findPositionOfO = function (gameBoard) {
     idx = gameBoard.indexOf(elementO, idx + 1)
     // find next position of x by starting the search from the last x + 1 index
   } return positionOfO
-}
+} */
 
 const checkWinningCondition = function (arr) {
   if (arr.includes(0) && arr.includes(1) && arr.includes(2)) {
@@ -63,12 +61,23 @@ const checkWinningCondition = function (arr) {
     // diagonal two
     return 'win!'
   } else {
-    return 'loser'
+    return 'lose'
   }
 }
 
+// function to place X or O in spot in the board
+const play = function (player, positionToPutPiece, gameBoard) {
+  // player = x or o, positionToPutPiece is an index number, gameBoard is the board
+  if (gameBoard[positionToPutPiece] === '') {
+    gameBoard[positionToPutPiece] = player
+} else {
+    console.log('sorry that space is taken')
+}
+}
+
+
 module.exports = {
-  findPositionOfX,
-  findPositionOfO,
-  checkWinningCondition
+  findPosition,
+  checkWinningCondition,
+  play
 }
