@@ -31,8 +31,11 @@ h1 {
 }
 
 .game-board {
-  // display: none;
-
+  display: none;
+  #message {
+    color: $white;
+    padding: 30px;
+  }
   .box {
     align-items: center;
     background-color: $background-color;
@@ -41,11 +44,9 @@ h1 {
     height: 80px;
     justify-content: center;
   }
-
   .border-right {
     border-right: 1px solid $border-color;
   }
-
   .border-bottom {
     border-bottom: 1px solid $border-color;
   }
@@ -55,13 +56,18 @@ h1 {
 }
 
 .useroptions {
-  // display: none;
-  display: flex;
+  display: none;
+  // display: flex;
   flex-direction: column;
   font-size: $fontsize;
-
+  padding: 30px;
+  .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   .glyphicon {
     color: $blue;
-    margin: 10px;
+    padding: 20px;
     }
 }
