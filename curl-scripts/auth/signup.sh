@@ -1,6 +1,8 @@
 # EMAIL='j@fox' PASSWORD='j' sh signup.sh
 
-curl --include --request POST "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
+  --include \
+  --request POST \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
