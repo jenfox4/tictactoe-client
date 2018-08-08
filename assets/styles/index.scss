@@ -1,2 +1,67 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import './colors';
+
+body {
+  background-color: $background-color;
+  margin: 40px auto;
+  max-width: 700px;
+  text-align: center;
+}
+
+h1 {
+  color: $white;
+  padding: 20px;
+}
+
+.signin-signup {
+  display: flex;
+  // display: none;
+  flex-direction: column;
+}
+
+.btn {
+  align-self: center;
+  background-color: $blue;
+  border: 1px solid $border-color;
+  color: $white;
+  font-size: $btnfontsize;
+  margin: 10px;
+  width: 20%;
+}
+
+.game-board {
+  // display: none;
+
+  .box {
+    align-items: center;
+    background-color: $background-color;
+    display: flex;
+    font-size: $xofontsize;
+    height: 80px;
+    justify-content: center;
+  }
+
+  .border-right {
+    border-right: 1px solid $border-color;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid $border-color;
+  }
+  p {
+    font-size: $xofontsize;
+  }
+}
+
+.useroptions {
+  // display: none;
+  display: flex;
+  flex-direction: column;
+  font-size: $fontsize;
+
+  .glyphicon {
+    color: $blue;
+    margin: 10px;
+    }
+}

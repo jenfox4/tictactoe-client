@@ -12,30 +12,95 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic Tac Toe</h1>
 
-<div class="gameBoard">
+<h1>Tic Tac Toe</h1>
+
+
+<div class="signin-signup">
+<!-- Sign up button -->
+<button type="button" class="btn" data-toggle="modal" data-target="#signUpModal">
+  sign up
+</button>
+
+<!-- Sign up modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign up to play!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="border" id="sign-up">
+        <fieldset>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password]" placeholder="Confirm Password">
+            <button type="submit" class="btn">sign up</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--sign in button-->
+<button type="button" class="btn" data-toggle="modal" data-target="#signInModal">
+  sign in
+</button>
+
+<!-- Sign in modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign into your account to play!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="border" id="sign-in">
+        <fieldset>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+            <button type="submit" class="btn">sign in</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--game board -->
+<div class="game-board">
       <div class="row">
-        <div class="col-xs-3 col-md-4 box border-right border-bottom">X</div>
-        <div class="col-xs-3 col-md-4 box border-right border-bottom">X</div>
-        <div class="col-xs-3 col-md-4 box border-bottom">X</div>
+        <div id="0" class="col-3 col-md-4 box border-right border-bottom">0</div>
+        <div id="1" class="col-3 col-md-4 box border-right border-bottom">1</div>
+        <div id="2" class="col-3 col-md-4 box border-bottom">2</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-3 col-md-4 box border-right border-bottom">X</div>
-        <div class="col-xs-3 col-md-4 box border-right border-bottom">O</div>
-        <div class="col-xs-3 col-md-4 box border-bottom">O</div>
+        <div  id="3" class="col-3 col-md-4 box border-right border-bottom">3</div>
+        <div  id="4" class="col-3 col-md-4 box border-right border-bottom">4</div>
+        <div  id="5" class="col-3 col-md-4 box border-bottom">5</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-3 col-md-4 box border-right">X</div>
-        <div class="col-xs-3 col-md-4 box border-right">O</div>
-        <div class="col-xs-3 col-md-4 box x">X</div>
+        <div id="6" class="col-3 col-md-4 box border-right">6</div>
+        <div id="7" class="col-3 col-md-4 box border-right">7</div>
+        <div id="8" class="col-3 col-md-4 box">8</div>
       </div>
 </div>
 
+<!-- user options buttons -->
+<div class="useroptions">
+  <button type="button" class="btn">End turn</button>
   <span class="glyphicon glyphicon-refresh"></span>
   <span class="glyphicon glyphicon-log-out"></span>
-
+</div>
     </body>
 </html>
