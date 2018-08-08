@@ -28,6 +28,7 @@ const findPosition = function (gameBoard, gamePiece) {
   } return positionOfO
 } */
 
+
 const checkWinningCondition = function (arr) {
   if (arr.includes(0) && arr.includes(1) && arr.includes(2)) {
     // first row across
@@ -75,9 +76,31 @@ const play = function (player, positionToPutPiece, gameBoard) {
 }
 }
 
+const minimumPlays = function (gameBoard) {
+// checks to see if enough moves have been played for a win
+  const xPosition = findPosition(gameBoard, 'X')
+  // find all the positions of X
+  const oPosition = findPosition(gameBoard, 'O')
+  // find all the positions of O
+  if ((xPosition.length + oPosition.length) >= 5) {
+    // if 5 or more positions have been filled than check to see if anyone has won
+    if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
+      console.log('keep playing')
+      // if noone has won, keep playing
+    } else {
+      console.log('x', checkWinningCondition(xPosition))
+      console.log('o', checkWinningCondition(oPosition))
+      // if someone has one console who has won
+    }
+  } else if ((xPosition.length + oPosition.length) < 5) {
+    console.log('keep playing')
+    // if less than 5 moves have been played, keep playing
+  }
+}
 
 module.exports = {
   findPosition,
   checkWinningCondition,
-  play
+  play,
+  minimumPlays
 }
