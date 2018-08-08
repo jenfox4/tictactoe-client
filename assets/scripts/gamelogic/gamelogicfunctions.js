@@ -28,7 +28,6 @@ const findPosition = function (gameBoard, gamePiece) {
   } return positionOfO
 } */
 
-
 const checkWinningCondition = function (arr) {
   if (arr.includes(0) && arr.includes(1) && arr.includes(2)) {
     // first row across
@@ -71,9 +70,9 @@ const play = function (player, positionToPutPiece, gameBoard) {
   // player = x or o, positionToPutPiece is an index number, gameBoard is the board
   if (gameBoard[positionToPutPiece] === '') {
     gameBoard[positionToPutPiece] = player
-} else {
+  } else {
     console.log('sorry that space is taken')
-}
+  }
 }
 
 const minimumPlays = function (gameBoard) {
