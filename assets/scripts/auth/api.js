@@ -2,6 +2,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
+// creates new user in api
 const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -10,6 +11,15 @@ const signUp = function (data) {
   })
 }
 
+const signIn = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data
+  })
+}
+
 module.exports = {
-  signUp
+  signUp,
+  signIn
 }

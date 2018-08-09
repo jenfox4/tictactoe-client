@@ -2,15 +2,27 @@
 
 const signUpSuccess = function (response) {
   $('#sign-up').hide()
-  $('.modal-title').html('<h5>Welcome</h5>')
-  $('.modal-body').html('<p>Please sign in to begin playing</p>')
+  // if user signed up successfully, display welcome message
+  $('#message').text('Wohoo! You are now signed up! Please log in to play.')
+  $('#message').removeClass()
+  $('#message').addClass('success')
 }
 
-const signUpFail = function (response) {
-  $('#sign-up-title').text('fail')
+const fail = function (response) {
+  $('.message').text('Hmmm...that didnt go so well. Please try again.')
+  $('.message').removeClass()
+  $('.message').addClass('fail')
+}
+
+const signInSuccess = function (response) {
+  $('.signin-signup').hide()
+  $('.game-board').show()
+  $('.useroptions').show()
+  $('.modal-backdrop').hide()
 }
 
 module.exports = {
   signUpSuccess,
-  signUpFail
+  fail,
+  signInSuccess
 }

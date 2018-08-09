@@ -10,4 +10,13 @@ const authEvents = require('./auth/events.js')
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   // when signup submitted, call on onSignUp function
+
+  $('.modal').on('blur', function () {
+    $('#sign-up').show()
+    $('#message').empty()
+  })
+  // allows the form to resort back to normal after signing up
+
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  // when sign in submitted, call on signIn function
 })
