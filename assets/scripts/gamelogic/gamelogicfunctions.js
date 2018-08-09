@@ -71,7 +71,7 @@ const play = function (player, positionToPutPiece, gameBoard) {
   if (gameBoard[positionToPutPiece] === '') {
     gameBoard[positionToPutPiece] = player
   } else {
-    console.log('sorry that space is taken')
+    // console.log('sorry that space is taken')
   }
 }
 
@@ -84,7 +84,7 @@ const minimumPlays = function (gameBoard) {
   if ((xPosition.length + oPosition.length) >= 5 && (xPosition.length + oPosition.length) !== 9) {
     // if 5 or more positions have been filled than check to see if anyone has won
     if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
-      console.log('keep playing')
+      // console.log('keep playing')
       // if noone has won, keep playing
     } else if (checkWinningCondition(xPosition) === 'win') {
       return 'x'
@@ -94,7 +94,7 @@ const minimumPlays = function (gameBoard) {
       // if o win return win for x
     }
   } else if ((xPosition.length + oPosition.length) < 5) {
-    console.log('keep playing')
+    // console.log('keep playing')
     // if less than 5 moves have been played, keep playing
   } else if ((xPosition.length + oPosition.length) === 9) {
     return 'draw'

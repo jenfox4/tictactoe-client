@@ -4,8 +4,8 @@ const store = require('./../../../store.js')
 
 const gameBoard = store.gameBoard
 // 3 by 3 game board of 9 locations
-const playerOne = 'X'
-const playerTwo = 'O'
+// const playerOne = 'X'
+// const playerTwo = 'O'
 
 // gameFunctions.play(playerOne, 0, gameBoard)
 // gameFunctions.play(playerTwo, 1, gameBoard)
@@ -13,8 +13,8 @@ const playerTwo = 'O'
 // gameFunctions.play(playerTwo, 2, gameBoard)
 // gameFunctions.play(playerOne, 7, gameBoard)
 // gameFunctions.play(playerTwo, 8, gameBoard)
-console.log(gameBoard)
-gameFunctions.minimumPlays(gameBoard)
+// console.log(gameBoard)
+// gameFunctions.minimumPlays(gameBoard)
 
 // const xWinningCondition = gameFunctions.checkWinningCondition(gameFunctions.findPosition(gameBoard, playerOne))
 // checks final game status of player x

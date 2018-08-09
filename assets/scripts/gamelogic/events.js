@@ -2,7 +2,7 @@
 const api = require('./api.js')
 // const authApi = require('./../auth/api.js')
 const ui = require('./ui.js')
-const getFormFields = require('./../../../lib/get-form-fields.js')
+// const getFormFields = require('./../../../lib/get-form-fields.js')
 const store = require('./../store.js')
 const gamelogicfunctions = require('./gamelogicfunctions.js')
 
@@ -14,7 +14,7 @@ const onBoardClick = function (event) {
   store.gameBoard[index] = player
   const value = player
   let over = false
-  console.log(store.gameBoard)
+  // console.log(store.gameBoard)
   ui.placeXOrO(event.target.id, player)
   switchPlayer()
   if (gamelogicfunctions.minimumPlays(store.gameBoard) === 'x') {
@@ -30,10 +30,10 @@ const onBoardClick = function (event) {
     over = true
     store.gameBoard = ['', '', '', '', '', '', '', '', '']
   } else {
-    console.log('continue playing')
+  //   console.log('continue playing')
   }
   api.updateGame(index, value, over)
-  console.log(index, value, over)
+  // console.log(index, value, over)
 }
 
 const switchPlayer = function (event) {

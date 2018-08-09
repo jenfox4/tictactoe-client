@@ -20,8 +20,8 @@ const signInSuccess = function (response) {
   $('.comp-human').show()
   $('#sign-in-modal').modal('hide')
   store.user = response.user
-  console.log('auth, sign in', store.user)
-  console.log('auth, sign in', store.user.token)
+  // console.log('auth, sign in', store.user)
+  // console.log('auth, sign in', store.user.token)
 }
 
 const changePasswordSuccess = function (response) {
@@ -36,7 +36,6 @@ const logOutSuccess = function (response) {
   $('.signin-signup').show()
   $('.comp-human').hide()
 }
-
 
 module.exports = {
   signUpSuccess,
