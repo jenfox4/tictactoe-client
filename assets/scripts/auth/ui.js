@@ -3,14 +3,14 @@
 const signUpSuccess = function (response) {
   $('#sign-up').hide()
   // if user signed up successfully, display welcome message
-  $('#message').text('Wohoo! You are now signed up! Please log in to play.')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('.message').text('Wohoo! You are now signed up! Please log in to play.')
+  $('.message').removeClass('fail')
+  $('.message').addClass('success')
 }
 
 const fail = function (response) {
   $('.message').text('Hmmm...that didnt go so well. Please try again.')
-  $('.message').removeClass()
+  $('.message').removeClass('fail')
   $('.message').addClass('fail')
 }
 

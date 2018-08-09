@@ -13,7 +13,7 @@ $(() => {
 
   $('.modal').on('blur', function () {
     $('#sign-up').show()
-    $('#message').empty()
+    $('.message').empty()
   })
   // allows the form to resort back to normal after signing up
 
