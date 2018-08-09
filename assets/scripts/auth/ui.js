@@ -19,18 +19,16 @@ const signInSuccess = function (response) {
   $('.signin-signup').hide()
   $('.game-board').show()
   $('.useroptions').show()
-  $('.modal-backdrop').hide()
+  $('#sign-in-modal').modal('hide')
   store.user = response.user
   console.log(store.user)
   console.log(store.user.token)
 }
 
 const logOutSuccess = function (response) {
-  $('.signin-signup').show()
-  $('.modal-backdrop').hide()
   $('.game-board').hide()
   $('.useroptions').hide()
-  $('.modal').css('display', 'none')
+  $('.signin-signup').show()
 }
 
 module.exports = {
