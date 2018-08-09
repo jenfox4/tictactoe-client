@@ -71,6 +71,7 @@
 </div>
 </div>
 
+
 <!--game board -->
 <div class="game-board">
     <h4 id="message">it's <b>your</b> turn</h4>
@@ -100,6 +101,36 @@
     <span class="glyphicon glyphicon-refresh"></span>
     <span class="glyphicon glyphicon-log-out"></span>
 </div>
+
+<!--change password button-->
+<button type="button" class="btn" data-toggle="modal" data-target="#change-password-modal">
+  change password
+</button>
+
+<!-- change password modal -->
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Change your password</h5>
+      </div>
+      <div class="modal-body">
+        <p class="message"></p>
+        <form class="border" id="sign-in">
+        <fieldset>
+          <input type="password" name="password[old]" placeholder="Old password">
+          <input type="password" name="password[new]" placeholder="New password">
+            <button type="submit" class="btn">submit</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 </div>
     </body>
 </html>
