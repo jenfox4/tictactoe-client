@@ -36,4 +36,5 @@ $(() => {
   $('.box').on('click', gameEvents.onBoardClick)
   // if a box is clicked, fill with X or O
   // toggles between player O and X
+  $('.past-games').on('click', gameEvents.pastGames)
 })

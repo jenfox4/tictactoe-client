@@ -31,10 +31,8 @@ const onBoardClick = function (event) {
     over = true
     player = 'x'
     store.gameBoard = ['', '', '', '', '', '', '', '', '']
-  } else {
-  //   console.log('continue playing')
   }
-  console.log(player)
+  // console.log(player)
   api.updateGame(index, value, over)
     .then(switchPlayer())
     .catch(ui.updateGameFail)
@@ -64,9 +62,16 @@ const refresh = function () {
     .catch(ui.newGameFail)
 }
 
+const pastGames = function () {
+  api.pastGames()
+    .then(ui.pastGames)
+    .catch(ui.failGames)
+}
+
 module.exports = {
   onBoardClick,
   switchPlayer,
   createNewGame,
-  refresh
+  refresh,
+  pastGames
 }

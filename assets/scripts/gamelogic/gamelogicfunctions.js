@@ -65,7 +65,6 @@ const minimumPlays = function (gameBoard) {
   }
 }
 
-
 const checkWinningCondition = function (arr) {
   if (arr.includes(0) && arr.includes(1) && arr.includes(2)) {
     // first row across
@@ -103,17 +102,17 @@ const checkWinningCondition = function (arr) {
   }
 }
 
-const totalScore = function (games) {
+/* const totalScore = function (games) {
   let count = 0
-  let gamesArr = games.games
+  const gamesArr = games.games
   for (let i = 0; i < gamesArr.length; i++) {
     if (minimumPlays(gamesArr[i].cells) === 'x') {
     //  console.log(minimumPlays(gamesArr[i].cells))
       count += 1
     //  console.log(count)
-    }
+    } return count
   }
-}
+} */
 
 /* let gamesObj = {"games":[
   {"id":108,"cells": ["x","x","x","o","o","x","o","",""],"over":false,"player_x":{"id":61,"email":"zzz@zzz"},"player_o":null},
@@ -127,6 +126,5 @@ module.exports = {
   findPosition,
   checkWinningCondition,
   play,
-  minimumPlays,
-  totalScore
+  minimumPlays
 }

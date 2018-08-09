@@ -89,3 +89,10 @@ h1 {
 .fail {
   color: #ff0000;
 }
+
+.score {
+  color: $white;
+  li {
+    list-style-type: none;
+  }
+}
