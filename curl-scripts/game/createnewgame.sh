@@ -1,4 +1,4 @@
-# TOKEN='BAhJIiU1NmY1ZjE1MzZjMDlmNDhjNDNlYzUwMzNmYjZkOGE1YQY6BkVG--184944560f17c8ed71832ebe36732640b963c8c3' sh game/allpastgames.sh
+# TOKEN='BAhJIiUxNTEyODY5ODBlNTI3NzJhODY4MjcwYzA2YmU3NzA1NwY6BkVG--008de93c2b451d8a024c6d0fc41c4435cc2f67df' sh game/allpastgames.sh
 
 curl "https://tic-tac-toe-wdi.herokuapp.com/games" \
   --include \
