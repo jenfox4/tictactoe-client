@@ -37,10 +37,15 @@ const logOutSuccess = function (response) {
   $('.comp-human').hide()
 }
 
+const logOutFail = function (response) {
+  $('.icons').html('<p>Hmm, there was an error. well if you cant log out might as well keep playing</p>')
+}
+
 module.exports = {
   signUpSuccess,
   fail,
   signInSuccess,
   logOutSuccess,
-  changePasswordSuccess
+  changePasswordSuccess,
+  logOutFail
 }
