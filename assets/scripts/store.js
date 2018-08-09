@@ -3,4 +3,9 @@
 const store = {
 }
 
-module.exports = store
+const gameBoard = ['', '', '', '', '', '', '', '', '']
+
+module.exports = {
+  store,
+  gameBoard
+}

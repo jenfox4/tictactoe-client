@@ -31,35 +31,35 @@ const findPosition = function (gameBoard, gamePiece) {
 const checkWinningCondition = function (arr) {
   if (arr.includes(0) && arr.includes(1) && arr.includes(2)) {
     // first row across
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(3) && arr.includes(4) && arr.includes(5)) {
     // second row across
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(6) && arr.includes(7) && arr.includes(8)) {
     // third row across
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(0) && arr.includes(3) && arr.includes(6)) {
     // first column down
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(1) && arr.includes(4) && arr.includes(7)) {
     // second column down
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(2) && arr.includes(5) && arr.includes(8)) {
     // third column down
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(0) && arr.includes(4) && arr.includes(8)) {
     // diagonal one
-    return 'win!'
+    return 'win'
   }
   if (arr.includes(2) && arr.includes(4) && arr.includes(6)) {
     // diagonal two
-    return 'win!'
+    return 'win'
   } else {
     return 'lose'
   }
@@ -77,23 +77,27 @@ const play = function (player, positionToPutPiece, gameBoard) {
 
 const minimumPlays = function (gameBoard) {
 // checks to see if enough moves have been played for a win
-  const xPosition = findPosition(gameBoard, 'X')
+  const xPosition = findPosition(gameBoard, 'x')
   // find all the positions of X
-  const oPosition = findPosition(gameBoard, 'O')
+  const oPosition = findPosition(gameBoard, 'o')
   // find all the positions of O
-  if ((xPosition.length + oPosition.length) >= 5) {
+  if ((xPosition.length + oPosition.length) >= 5 && (xPosition.length + oPosition.length) !== 9) {
     // if 5 or more positions have been filled than check to see if anyone has won
     if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
       console.log('keep playing')
       // if noone has won, keep playing
-    } else {
-      console.log('x', checkWinningCondition(xPosition))
-      console.log('o', checkWinningCondition(oPosition))
-      // if someone has one console who has won
+    } else if (checkWinningCondition(xPosition) === 'win') {
+      return 'x'
+      // if x won, return win for x
+    } else if (checkWinningCondition(oPosition) === 'win') {
+      return 'o'
+      // if o win return win for x
     }
   } else if ((xPosition.length + oPosition.length) < 5) {
     console.log('keep playing')
     // if less than 5 moves have been played, keep playing
+  } else if ((xPosition.length + oPosition.length) === 9) {
+    return 'draw'
   }
 }
 
