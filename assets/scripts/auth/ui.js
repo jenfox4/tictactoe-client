@@ -1,4 +1,5 @@
 // user interface changes for authentication process (i.e. sign in/sign out)
+const store = require('./../store.js')
 
 const signUpSuccess = function (response) {
   $('#sign-up').hide()
@@ -19,10 +20,22 @@ const signInSuccess = function (response) {
   $('.game-board').show()
   $('.useroptions').show()
   $('.modal-backdrop').hide()
+  store.user = response.user
+  console.log(store.user)
+  console.log(store.user.token)
+}
+
+const logOutSuccess = function (response) {
+  $('.signin-signup').show()
+  $('.modal-backdrop').hide()
+  $('.game-board').hide()
+  $('.useroptions').hide()
+  $('.modal').css('display', 'none')
 }
 
 module.exports = {
   signUpSuccess,
   fail,
-  signInSuccess
+  signInSuccess,
+  logOutSuccess
 }
