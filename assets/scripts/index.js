@@ -21,6 +21,12 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   // when sign in submitted, call on signIn function
 
+  $('.glyphicon-refresh').on('click', gameEvents.refresh)
+  // start new game when refresh button is hit
+
+  $('.new-game').on('click', gameEvents.createNewGame)
+  // start new game when signing in
+
   $('.glyphicon-log-out').on('click', authEvents.logOut)
   // when log out is clicked, go back to home page
 

@@ -17,12 +17,11 @@ const fail = function (response) {
 
 const signInSuccess = function (response) {
   $('.signin-signup').hide()
-  $('.game-board').show()
-  $('.useroptions').show()
+  $('.comp-human').show()
   $('#sign-in-modal').modal('hide')
   store.user = response.user
-  console.log(store.user)
-  console.log(store.user.token)
+  console.log('auth, sign in', store.user)
+  console.log('auth, sign in', store.user.token)
 }
 
 const changePasswordSuccess = function (response) {
@@ -35,7 +34,9 @@ const logOutSuccess = function (response) {
   $('.game-board').hide()
   $('.useroptions').hide()
   $('.signin-signup').show()
+  $('.comp-human').hide()
 }
+
 
 module.exports = {
   signUpSuccess,

@@ -5,7 +5,11 @@ const store = {
 
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 
+const games = {
+}
+
 module.exports = {
   store,
-  gameBoard
+  gameBoard,
+  games
 }

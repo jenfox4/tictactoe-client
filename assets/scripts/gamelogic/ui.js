@@ -1,4 +1,5 @@
 // User interface changes for game logic
+const store = require('./../store.js')
 
 const placeXOrO = function (id, player) {
   $('#' + id).html('<p>' + player + '</p>')
@@ -14,17 +15,31 @@ const switchPlayer = function (str) {
 
 const xWins = function () {
   $('#message').html('Player One wins!')
-  $('.box').off('click')
+  $('.row').hide()
 }
 
 const oWins = function () {
   $('#message').html('Player Two wins!')
-  $('.box').off('click')
+  $('.row').hide()
 }
 
 const draw = function () {
   $('#message').html('its a draw.')
-  $('.box').off('click')
+  $('.row').hide()
+}
+
+const newGameSuccess = function (response) {
+  store.game = response.game
+  $('.game-board').show()
+  $('.useroptions').show()
+  $('.comp-human').hide()
+}
+
+const refresh = function (response) {
+  store.game = response.game
+  $('.box').empty()
+  $('.row').show()
+  $('#message').html('your turn <b>Player One</b>')
 }
 
 module.exports = {
@@ -32,5 +47,7 @@ module.exports = {
   switchPlayer,
   xWins,
   oWins,
-  draw
+  draw,
+  newGameSuccess,
+  refresh
 }
