@@ -25,6 +25,12 @@ const signInSuccess = function (response) {
   console.log(store.user.token)
 }
 
+const changePasswordSuccess = function (response) {
+  $('.message').text('Your password has now been updated.')
+  $('.message').removeClass('fail')
+  $('.message').addClass('success')
+}
+
 const logOutSuccess = function (response) {
   $('.game-board').hide()
   $('.useroptions').hide()
@@ -35,5 +41,6 @@ module.exports = {
   signUpSuccess,
   fail,
   signInSuccess,
-  logOutSuccess
+  logOutSuccess,
+  changePasswordSuccess
 }

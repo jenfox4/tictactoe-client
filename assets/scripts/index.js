@@ -21,4 +21,6 @@ $(() => {
   // when sign in submitted, call on signIn function
 
   $('.glyphicon-log-out').on('click', authEvents.logOut)
+
+  $('#change-password').on('submit', authEvents.changePassword)
 })
