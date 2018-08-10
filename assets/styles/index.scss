@@ -46,8 +46,9 @@ h1 {
     background-color: $background-color;
     display: flex;
     font-size: $xofontsize;
-    height: 100px;
+    height: 120px;
     justify-content: center;
+    padding: 10px;
   }
 
   .border-right {
@@ -61,6 +62,8 @@ h1 {
   p {
     color: $yellow;
     font-size: $xofontsize;
+    margin: 0;
+    padding: 0;
   }
 }
 
