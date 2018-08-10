@@ -14,12 +14,6 @@ h1 {
   padding: 20px;
 }
 
-.signin-signup {
-  display: flex;
-  // display: none;
-  flex-direction: column;
-}
-
 .btn {
   align-self: center;
   background-color: $blue;
@@ -28,6 +22,12 @@ h1 {
   font-size: $btnfontsize;
   margin: 10px;
   width: 30%;
+}
+
+.signin-signup {
+  display: flex;
+  // display: none;
+  flex-direction: column;
 }
 
 .comp-human {
@@ -59,12 +59,18 @@ h1 {
   }
 
   p {
+    color: $yellow;
     font-size: $xofontsize;
   }
 }
 
 .score {
+  color: $white;
   display: none;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 .useroptions {
@@ -87,16 +93,9 @@ h1 {
 }
 
 .success {
-  color: #008000;
+  color: $green;
 }
 
 .fail {
-  color: #ff0000;
-}
-
-.score {
-  color: $white;
-  li {
-    list-style-type: none;
-  }
+  color: $red;
 }

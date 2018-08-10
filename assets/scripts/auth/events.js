@@ -23,6 +23,7 @@ const onSignIn = function (event) {
     .catch(ui.fail)
 }
 
+// function when user logs out to show success in ui or fail
 const logOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -32,6 +33,7 @@ const logOut = function (event) {
     .catch(ui.logOutFail)
 }
 
+// function when user changes password to show success or fail
 const changePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)

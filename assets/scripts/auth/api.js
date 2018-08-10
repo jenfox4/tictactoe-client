@@ -11,6 +11,7 @@ const signUp = function (data) {
   })
 }
 
+// signs new user in, recieves token for user
 const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
@@ -19,6 +20,7 @@ const signIn = function (data) {
   })
 }
 
+// logs out current user
 const logOut = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
@@ -30,6 +32,7 @@ const logOut = function (data) {
   })
 }
 
+// change password of current user
 const changePassword = function (data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
@@ -40,7 +43,6 @@ const changePassword = function (data) {
     data
   })
 }
-
 
 module.exports = {
   signUp,

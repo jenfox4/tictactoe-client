@@ -15,6 +15,7 @@ const createNewGame = function (data) {
   })
 }
 
+// shows all past games
 const pastGames = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -25,6 +26,7 @@ const pastGames = function (data) {
   })
 }
 
+// shows specific past game
 const showIndexGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games' + store.game.id,
@@ -35,6 +37,7 @@ const showIndexGame = function () {
   })
 }
 
+// updates current game with X and O values
 const updateGame = function (index, value, over) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
