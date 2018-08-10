@@ -9,32 +9,33 @@ const authEvents = require('./auth/events.js')
 const gameEvents = require('./gamelogic/events.js')
 
 $(() => {
-  $('#sign-up').on('submit', authEvents.onSignUp)
   // when signup submitted, call on onSignUp function
+  $('#sign-up').on('submit', authEvents.onSignUp)
 
+  // allows the form to resort back to normal after signing up
   $('.modal').on('blur', function () {
     $('#sign-up').show()
     $('.message').empty()
   })
-  // allows the form to resort back to normal after signing up
 
-  $('#sign-in').on('submit', authEvents.onSignIn)
   // when sign in submitted, call on signIn function
+  $('#sign-in').on('submit', authEvents.onSignIn)
 
-  $('.glyphicon-refresh').on('click', gameEvents.refresh)
   // start new game when refresh button is hit
+  $('.glyphicon-refresh').on('click', gameEvents.refresh)
 
-  $('.new-game').on('click', gameEvents.createNewGame)
   // start new game when signing in
+  $('.new-game').on('click', gameEvents.createNewGame)
 
-  $('.glyphicon-log-out').on('click', authEvents.logOut)
   // when log out is clicked, go back to home page
+  $('.glyphicon-log-out').on('click', authEvents.logOut)
 
-  $('#change-password').on('submit', authEvents.changePassword)
   // when password changed form, submitted
+  $('#change-password').on('submit', authEvents.changePassword)
 
-  $('.box').on('click', gameEvents.onBoardClick)
   // if a box is clicked, fill with X or O
+  $('.box').on('click', gameEvents.onBoardClick)
+
   // toggles between player O and X
   $('.past-games').on('click', gameEvents.pastGames)
 })

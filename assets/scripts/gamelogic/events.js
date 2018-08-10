@@ -11,30 +11,37 @@ let player = 'x'
 const onBoardClick = function (event) {
   event.preventDefault()
   const index = event.target.id
-  store.gameBoard[index] = player
   const value = player
+  let winner = null
   let over = false
-  // console.log(store.gameBoard)
-  ui.placeXOrO(event.target.id, player)
-  if (gamelogicfunctions.minimumPlays(store.gameBoard) === 'x') {
-    ui.xWins()
-    over = true
-    player = 'x'
-    store.gameBoard = ['', '', '', '', '', '', '', '', '']
-  } else if ((gamelogicfunctions.minimumPlays(store.gameBoard)) === 'o') {
-    ui.oWins()
-    over = true
-    player = 'x'
-    store.gameBoard = ['', '', '', '', '', '', '', '', '']
-  } else if ((gamelogicfunctions.minimumPlays(store.gameBoard)) === 'draw') {
-    ui.draw()
-    over = true
-    player = 'x'
-    store.gameBoard = ['', '', '', '', '', '', '', '', '']
+  if (store.gameBoard[index] === '') {
+    store.gameBoard[index] = player
+    // console.log(store.gameBoard)
+    ui.placeXOrO(event.target.id, player)
+    if (gamelogicfunctions.minimumPlays(store.gameBoard) === 'x') {
+      winner = 'Player One'
+      over = true
+      player = 'x'
+      store.gameBoard = ['', '', '', '', '', '', '', '', '']
+    } else if ((gamelogicfunctions.minimumPlays(store.gameBoard)) === 'o') {
+      winner = 'Player Two'
+      over = true
+      player = 'x'
+      store.gameBoard = ['', '', '', '', '', '', '', '', '']
+    } else if ((gamelogicfunctions.minimumPlays(store.gameBoard)) === 'draw') {
+      winner = ('Its a draw')
+      over = true
+      player = 'x'
+      store.gameBoard = ['', '', '', '', '', '', '', '', '']
+    } else {
+      switchPlayer()
+    // console.log(player)
+    }
+  } else {
+    ui.invalidMove()
   }
-  // console.log(player)
   api.updateGame(index, value, over)
-    .then(switchPlayer())
+    .then(ui.winStatus(over, winner))
     .catch(ui.updateGameFail)
   // console.log(index, value, over)
 }
@@ -56,7 +63,7 @@ const createNewGame = function (event) {
 }
 
 const refresh = function () {
-  switchPlayer()
+  player = 'x'
   api.createNewGame()
     .then(ui.refresh)
     .catch(ui.newGameFail)

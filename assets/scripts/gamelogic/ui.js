@@ -14,19 +14,26 @@ const switchPlayer = function (str) {
   }
 }
 
-const xWins = function () {
-  $('#message').html('Player One wins!')
-  $('.row').hide()
+const winStatus = function (over, winner) {
+  if (over) {
+    $('.row').hide()
+    $('.score').show()
+    $('.past-games').show()
+    switch (winner) {
+      case 'Player One':
+        $('#message').html('Player One wins!')
+        break
+      case 'Player Two':
+        $('#message').html('Player Two wins!')
+        break
+      case 'Its a draw':
+        $('#message').html('its a draw.')
+    }
+  }
 }
 
-const oWins = function () {
-  $('#message').html('Player Two wins!')
-  $('.row').hide()
-}
-
-const draw = function () {
-  $('#message').html('its a draw.')
-  $('.row').hide()
+const invalidMove = function () {
+  $('#message').html('That spot is taken!')
 }
 
 const newGameSuccess = function (response) {
@@ -46,6 +53,8 @@ const refresh = function (response) {
   $('.box').empty()
   $('.row').show()
   $('#message').html('your turn <b>Player One</b>')
+  $('.past-games-list').empty()
+  $('#wins').empty()
 }
 
 const updateGameFail = function (response) {
@@ -61,9 +70,9 @@ const pastGames = function (response) {
   for (let i = 0; i < game.length; i++) {
     if (gamelogicfunctions.minimumPlays(game[i].cells) === 'x') {
       counter += 1
-      $('.score').append('<li> ID: ' + game[i].id + ', Plays: ' + game[i].cells + '</li>')
-    } $('#wins').text('You have won ' + counter + ' times!')
-  }
+    }
+    $('.past-games-list').append('<li> ID: ' + game[i].id + ', Plays: ' + game[i].cells + '</li>')
+  } $('#wins').text('You have won ' + counter + ' times!')
 }
 
 const failGames = function () {
@@ -73,13 +82,12 @@ const failGames = function () {
 module.exports = {
   placeXOrO,
   switchPlayer,
-  xWins,
-  oWins,
-  draw,
+  winStatus,
   newGameSuccess,
   newGameFail,
   refresh,
   updateGameFail,
   pastGames,
-  failGames
+  failGames,
+  invalidMove
 }
