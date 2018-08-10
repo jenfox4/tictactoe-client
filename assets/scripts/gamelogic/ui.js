@@ -1,7 +1,6 @@
 // User interface changes for game logic
 const store = require('./../store.js')
 const gamelogicfunctions = require('./gamelogicfunctions.js')
-const events = ('./events.js')
 
 // places x or o in div
 const placeXOrO = function (id, player) {

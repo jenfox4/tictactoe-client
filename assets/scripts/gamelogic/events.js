@@ -25,7 +25,7 @@ const onBoardClick = function (event) {
     console.log(store.gameBoard)
     store.invalid = false
     store.gameBoard[index] = player
-    ui.placeXOrO(index, player)
+    // ui.placeXOrO(index, player)
     gamelogicfunctions.checkWinning(player)
   } else if ((store.gameBoard[index] !== '') && store.opponent === 'computer') {
     ui.invalidMove()
@@ -36,12 +36,10 @@ const onBoardClick = function (event) {
   } else {
     ui.invalidMove()
   }
-  if (store.opponent === 'human') {
-    switchPlayer()
-  }
   console.log('store.over', store.over)
   api.updateGame(index, value, store.over)
-    .then(ui.winStatus(store.over, store.winner))
+    .then(ui.placeXOrO(index, player),
+      ui.winStatus(store.over, store.winner))
     .catch(ui.updateGameFail)
   // console.log(index, value, over)
 }
@@ -61,6 +59,7 @@ const compOrHuman = function (event) {
   if (store.opponent === 'human') {
     console.log('human in compOrHuman')
     onBoardClick(event)
+    switchPlayer()
   } else if (store.opponent === 'computer') {
     ui.computerGame()
     onBoardClick(event)
