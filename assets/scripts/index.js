@@ -25,7 +25,6 @@ $(() => {
   $('.glyphicon-refresh').on('click', gameEvents.refresh)
 
   // start new game when signing in
-  $('.new-game').on('click', gameEvents.createNewGame)
 
   // when log out is clicked, go back to home page
   $('.glyphicon-log-out').on('click', authEvents.logOut)
@@ -34,8 +33,11 @@ $(() => {
   $('#change-password').on('submit', authEvents.changePassword)
 
   // if a box is clicked, fill with X or O
-  $('.box').on('click', gameEvents.onBoardClick)
+  $('.box').on('click', gameEvents.compOrHuman)
 
-  // toggles between player O and X
+  // after choosing human or computer create new game
+  $('.new-game').on('click', gameEvents.createNewGame)
+
   $('.past-games').on('click', gameEvents.pastGames)
-})
+}
+)

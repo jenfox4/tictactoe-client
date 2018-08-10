@@ -1,3 +1,4 @@
+const store = require('./../store.js')
 
 const findPosition = function (gameBoard, gamePiece) {
 //  gameBoard = game board you are playing, gamePiece = X or O's
@@ -102,29 +103,43 @@ const checkWinningCondition = function (arr) {
   }
 }
 
-/* const totalScore = function (games) {
-  let count = 0
-  const gamesArr = games.games
-  for (let i = 0; i < gamesArr.length; i++) {
-    if (minimumPlays(gamesArr[i].cells) === 'x') {
-    //  console.log(minimumPlays(gamesArr[i].cells))
-      count += 1
-    //  console.log(count)
-    } return count
+const computer = function (array) {
+  const emptySpace = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === '') {
+      emptySpace.push(i)
+    }
   }
-} */
+  return emptySpace[Math.floor(Math.random() * emptySpace.length)]
+}
 
-/* let gamesObj = {"games":[
-  {"id":108,"cells": ["x","x","x","o","o","x","o","",""],"over":false,"player_x":{"id":61,"email":"zzz@zzz"},"player_o":null},
-  {"id":109,"cells":["x","x","x","o","o","x","o","",""],"over":false,"player_x":{"id":61,"email":"zzz@zzz"},"player_o":null},
-  {"id":113,"cells":["x","x","x","o","o","x","o","",""],"over":false,"player_x":{"id":61,"email":"zzz@zzz"},"player_o":null},
-  {"id":111,"cells":["x","x","x","o","o","x","o","",""],"over":false,"player_x":{"id":61,"email":"zzz@zzz"},"player_o":null},
-  {"id":117,"cells":["x","x","x","o","o","x","o","",""],"over":false,"player_x":{"id":61,"email":"zzz@zzz"},"player_o":null}
-]} */
+const checkWinning = function (player) {
+  if (minimumPlays(store.gameBoard) === 'x') {
+    store.winner = 'Player One'
+    store.over = true
+    player = 'x'
+    // finds all the 'x' on board and determines winner
+    // resets internal board
+  } else if (minimumPlays(store.gameBoard) === 'o') {
+    store.winner = 'Player Two'
+    store.over = true
+    player = 'x'
+    // finds all the 'o' on board and determines winner
+    store.gameBoard = ['', '', '', '', '', '', '', '', '']
+    // resets internal board
+  } else if (minimumPlays(store.gameBoard) === 'draw') {
+    store.winner = ('Its a draw')
+    store.over = true
+    player = 'x'
+    store.gameBoard = ['', '', '', '', '', '', '', '', '']
+  }
+}
 
 module.exports = {
   findPosition,
   checkWinningCondition,
   play,
-  minimumPlays
+  minimumPlays,
+  computer,
+  checkWinning
 }

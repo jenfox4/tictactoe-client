@@ -5,55 +5,43 @@ const ui = require('./ui.js')
 // const getFormFields = require('./../../../lib/get-form-fields.js')
 const store = require('./../store.js')
 const gamelogicfunctions = require('./gamelogicfunctions.js')
+const computer = require('./computer.js')
 
 // game should always start with player 1 being X
 let player = 'x'
 
-// function that determines game winnings
+// function that determines game winnings for human game
 const onBoardClick = function (event) {
-  event.preventDefault()
+  console.log('onBoardClick works!')
+  if (store.over) {
+    return
+  }
   const index = event.target.id
   // finds id of div player has clicked, same as index in array
   const value = player
   // finds which player is currently being played
-  let winner = null
   // later used to let ui know which winner to log
-  let over = false
   if (store.gameBoard[index] === '') {
+    console.log(store.gameBoard)
+    store.invalid = false
     store.gameBoard[index] = player
-    // console.log(store.gameBoard)
-    ui.placeXOrO(event.target.id, player)
-    // puts X or O on the board
-    if (gamelogicfunctions.minimumPlays(store.gameBoard) === 'x') {
-      winner = 'Player One'
-      over = true
-      player = 'x'
-      // finds all the 'x' on board and determines winner
-      store.gameBoard = ['', '', '', '', '', '', '', '', '']
-      // resets internal board
-    } else if ((gamelogicfunctions.minimumPlays(store.gameBoard)) === 'o') {
-      winner = 'Player Two'
-      over = true
-      player = 'x'
-      // finds all the 'o' on board and determines winner
-      store.gameBoard = ['', '', '', '', '', '', '', '', '']
-      // resets internal board
-    } else if ((gamelogicfunctions.minimumPlays(store.gameBoard)) === 'draw') {
-      winner = ('Its a draw')
-      over = true
-      player = 'x'
-      store.gameBoard = ['', '', '', '', '', '', '', '', '']
-    } else {
-      switchPlayer()
-      // switches players for next round
-    // console.log(player)
-    }
+    ui.placeXOrO(index, player)
+    gamelogicfunctions.checkWinning(player)
+  } else if ((store.gameBoard[index] !== '') && store.opponent === 'computer') {
+    ui.invalidMove()
+    console.log('invalid', store.invalid)
+    store.invalid = true
+    console.log('invalid', store.invalid)
+    // if div is taken, cannot do that move
   } else {
     ui.invalidMove()
-    // if div is taken, cannot do that move
   }
-  api.updateGame(index, value, over)
-    .then(ui.winStatus(over, winner))
+  if (store.opponent === 'human') {
+    switchPlayer()
+  }
+  console.log('store.over', store.over)
+  api.updateGame(index, value, store.over)
+    .then(ui.winStatus(store.over, store.winner))
     .catch(ui.updateGameFail)
   // console.log(index, value, over)
 }
@@ -69,8 +57,23 @@ const switchPlayer = function (event) {
   }
 }
 
+const compOrHuman = function (event) {
+  if (store.opponent === 'human') {
+    console.log('human in compOrHuman')
+    onBoardClick(event)
+  } else if (store.opponent === 'computer') {
+    ui.computerGame()
+    onBoardClick(event)
+    setTimeout(computer.onComputerBoardClick(), 100000)
+  }
+}
+
 // creates new game in api and has ui respond
 const createNewGame = function (event) {
+  console.log('event', event)
+  console.log('event target', event.target)
+  store.opponent = event.target.id
+  console.log(store.opponent)
   api.createNewGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)
@@ -79,6 +82,7 @@ const createNewGame = function (event) {
 // refreshes game with refresh button and has ui respond
 const refresh = function () {
   player = 'x'
+  store.over = false
   store.gameBoard = ['', '', '', '', '', '', '', '', '']
   api.createNewGame()
     .then(ui.refresh)
@@ -97,5 +101,6 @@ module.exports = {
   switchPlayer,
   createNewGame,
   refresh,
-  pastGames
+  pastGames,
+  compOrHuman
 }

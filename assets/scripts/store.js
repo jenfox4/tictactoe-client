@@ -8,8 +8,17 @@ const gameBoard = ['', '', '', '', '', '', '', '', '']
 const games = {
 }
 
+const over = false
+
+const opponent = null
+
+const invalid = false
+
 module.exports = {
   store,
   gameBoard,
-  games
+  games,
+  over,
+  opponent,
+  invalid
 }

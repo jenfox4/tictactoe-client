@@ -1,6 +1,7 @@
 // User interface changes for game logic
 const store = require('./../store.js')
 const gamelogicfunctions = require('./gamelogicfunctions.js')
+const events = ('./events.js')
 
 // places x or o in div
 const placeXOrO = function (id, player) {
@@ -11,28 +12,24 @@ const placeXOrO = function (id, player) {
 const switchPlayer = function (str) {
   if (str === 'x') {
     $('#message').html('your turn <b>Player One</b>')
-  } else {
+  } else if (str === 'o') {
     $('#message').html('your turn <b>Player Two</b>')
+  } else if (str === 'computer') {
+    $('#message').html('waiting for <b>computer</b>')
   }
 }
 
 // determines winning message displayed
 const winStatus = function (over, winner) {
   if (over) {
-    $('.row').hide()
     $('.score').show()
     $('.past-games').show()
-    switch (winner) {
-      case 'Player One':
-        $('#message').html('Player One wins!')
-        break
-      case 'Player Two':
-        $('#message').html('Player Two wins!')
-        break
-      case 'Its a draw':
-        $('#message').html('its a draw.')
-    }
+    $('#message').html(winner + ' wins!')
   }
+}
+
+const computerGame = function () {
+  $('#message').html('')
 }
 
 // player cannot move to that spot as it is taken
@@ -100,5 +97,6 @@ module.exports = {
   updateGameFail,
   pastGames,
   failGames,
-  invalidMove
+  invalidMove,
+  computerGame
 }

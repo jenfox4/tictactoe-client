@@ -50,6 +50,8 @@ const logOutSuccess = function (response) {
   $('.score').hide()
   console.log($('.box').html())
   $('.box').empty()
+  $('.game-board').removeClass('computer')
+  $('.game-board').removeClass('human')
 }
 
 const logOutFail = function (response) {
