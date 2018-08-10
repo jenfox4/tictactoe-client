@@ -7,6 +7,7 @@ const signUpSuccess = function (response) {
   $('.message').text('Wohoo! You are now signed up! Please log in to play.')
   $('.message').removeClass('fail')
   $('.message').addClass('success')
+  $('input').val('')
 }
 
 const fail = function (response) {
@@ -31,6 +32,8 @@ const changePasswordSuccess = function (response) {
   $('.message').text('Your password has now been updated.')
   $('.message').removeClass('fail')
   $('.message').addClass('success')
+  console.log($('#change-password').val(''))
+  $('input').val('')
 }
 
 const logOutSuccess = function (response) {
