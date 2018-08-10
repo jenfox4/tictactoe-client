@@ -22,6 +22,9 @@ const signInSuccess = function (response) {
   $('.signin-signup').hide()
   $('.comp-human').show()
   $('#sign-in-modal').modal('hide')
+  $('.message').removeClass('fail')
+  $('.message').text('')
+  $('input').val('')
   store.user = response.user
   // console.log('auth, sign in', store.user)
   // console.log('auth, sign in', store.user.token)
@@ -45,6 +48,8 @@ const logOutSuccess = function (response) {
   $('.past-games-list').empty()
   $('#wins').empty()
   $('.score').hide()
+  console.log($('.box').html())
+  $('.box').empty()
 }
 
 const logOutFail = function (response) {

@@ -45,7 +45,7 @@ const minimumPlays = function (gameBoard) {
   // find all the positions of X
   const oPosition = findPosition(gameBoard, 'o')
   // find all the positions of O
-  if ((xPosition.length + oPosition.length) >= 5 && (xPosition.length + oPosition.length) !== 9) {
+  if ((xPosition.length + oPosition.length) >= 5) {
     // if 5 or more positions have been filled than check to see if anyone has won
     if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
       // console.log('keep playing')
@@ -60,7 +60,7 @@ const minimumPlays = function (gameBoard) {
   } else if ((xPosition.length + oPosition.length) < 5) {
     // console.log('keep playing')
     // if less than 5 moves have been played, keep playing
-  } else if ((xPosition.length + oPosition.length) === 9) {
+  } else if ((xPosition.length + oPosition.length) === 9 && checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
     return 'draw'
   }
 }

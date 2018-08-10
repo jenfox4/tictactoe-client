@@ -2,6 +2,7 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
+const store = require('./../store.js')
 
 // function that retrieves from api and changes UI
 const onSignUp = function (event) {
@@ -26,6 +27,7 @@ const onSignIn = function (event) {
 // function when user logs out to show success in ui or fail
 const logOut = function (event) {
   event.preventDefault()
+  store.gameBoard = ['', '', '', '', '', '', '', '', '']
   const data = getFormFields(event.target)
   // console.log(data)
   api.logOut(data)
