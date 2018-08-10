@@ -39,6 +39,9 @@ const logOutSuccess = function (response) {
   $('.useroptions').hide()
   $('.signin-signup').show()
   $('.comp-human').hide()
+  $('.past-games-list').empty()
+  $('#wins').empty()
+  $('.score').hide()
 }
 
 const logOutFail = function (response) {
