@@ -12,25 +12,27 @@ let player = 'x'
 
 // function that determines game winnings for human game
 const onBoardClick = function (event) {
-  if (store.over) {
+  if (store.over === true) {
     return
   }
   const index = event.target.id
+  console.log('event target id', event.target.id)
   // finds id of div player has clicked, same as index in array
   const value = player
   // finds which player is currently being played
   // later used to let ui know which winner to log
   if (store.gameBoard[index] === '') {
+    console.log('spot not taken', (store.gameBoard[index] === ''))
     store.invalid = false
     store.gameBoard[index] = player
     // ui.placeXOrO(index, player)
     gamelogicfunctions.checkWinning(player)
-  } else if ((store.gameBoard[index] !== '') && store.opponent === 'computer') {
+  } else if (store.gameBoard[index] !== '') {
+    console.log('spot is taken', (store.gameBoard[index] !== ''))
     ui.invalidMove()
     store.invalid = true
+    return
     // if div is taken, cannot do that move
-  } else {
-    ui.invalidMove()
   }
   api.updateGame(index, value, store.over)
     .then(ui.placeXOrO(index, player),
