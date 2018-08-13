@@ -23,11 +23,13 @@ const onBoardClick = function (event) {
   // finds which player is currently being played
   // later used to let ui know which winner to log
   if (store.gameBoard[index] === '') {
-    console.log(store.gameBoard)
+    console.log('human turn gameboard before play', store.gameBoard)
     store.invalid = false
     store.gameBoard[index] = player
+    console.log('human turn gameboard after play', store.gameBoard)
     // ui.placeXOrO(index, player)
     gamelogicfunctions.checkWinning(player)
+    console.log(gamelogicfunctions.checkWinning(player))
   } else if ((store.gameBoard[index] !== '') && store.opponent === 'computer') {
     ui.invalidMove()
     console.log('invalid', store.invalid)
@@ -104,11 +106,16 @@ const pastGames = function () {
     .catch(ui.failGames)
 }
 
+const computerOptions = function () {
+  ui.computerOptions()
+}
+
 module.exports = {
   onBoardClick,
   switchPlayer,
   createNewGame,
   refresh,
   pastGames,
-  compOrHuman
+  compOrHuman,
+  computerOptions
 }

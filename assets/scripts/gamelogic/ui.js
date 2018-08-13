@@ -22,7 +22,6 @@ const switchPlayer = function (str) {
 const winStatus = function (over, winner) {
   if (over) {
     $('.score').show()
-    $('.past-games').show()
     $('#message').html(winner + ' wins!')
   }
 }
@@ -42,6 +41,8 @@ const newGameSuccess = function (response) {
   $('.game-board').show()
   $('.useroptions').show()
   $('.comp-human').hide()
+  $('.easy-or-hard-computer').hide()
+  $('.past-games').show()
 }
 
 // refresh button to continue playing
@@ -86,6 +87,11 @@ const failGames = function () {
   $('#wins').text('Something went wrong, please try again')
 }
 
+const computerOptions = function () {
+  $('.comp-human').hide()
+  $('.easy-or-hard-computer').show()
+}
+
 module.exports = {
   placeXOrO,
   switchPlayer,
@@ -97,5 +103,6 @@ module.exports = {
   pastGames,
   failGames,
   invalidMove,
-  computerGame
+  computerGame,
+  computerOptions
 }

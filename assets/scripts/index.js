@@ -36,6 +36,9 @@ $(() => {
   // after choosing human or computer create new game
   $('.new-game').on('click', gameEvents.createNewGame)
 
+  // after choosing computer, show easy or hard useroptions
+  $('.computer-options').on('click', gameEvents.computerOptions)
+
   $('.past-games').on('click', gameEvents.pastGames)
 }
 )

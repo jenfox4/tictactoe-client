@@ -166,16 +166,16 @@ const minimax = function (emptySpaces, gameBoard) {
 
 const bestMoveFinder = function (moveArr) {
   let bestScore = moveArr[0].score
-  console.log('best score', bestScore)
+  // console.log('best score', bestScore)
   let bestMove = moveArr[0].index
-  console.log('best move', bestMove)
+  // console.log('best move', bestMove)
   for (let i = 1; i < moveArr.length; i++) {
     if (moveArr[i].score > bestScore) {
-      console.log('if statement', moveArr[i].score)
+    //   console.log('if statement', moveArr[i].score)
       bestScore = moveArr[i].score
-      console.log('new score', bestScore)
+    //   console.log('new score', bestScore)
       bestMove = moveArr[i].index
-      console.log('new best move', bestMove)
+    //   console.log('new best move', bestMove)
     }
   }
   return bestMove
@@ -185,8 +185,8 @@ const clearMoves = function (moveArr) {
   const length = moveArr.length
   for (let i = 0; i < length; i++) {
     moveArr.pop()
-    console.log('after pop', moveArr)
   }
+  console.log('after pop', moveArr)
 }
 // console.log(bestMoveFinder(minimax(findEmptySpaces(store.gameBoard), store.gameBoard)))
 
