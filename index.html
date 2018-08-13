@@ -73,7 +73,7 @@
 
 <!--computer or human -->
 <div class="comp-human">
-  <button type="button" id="computer" class="btn new-game">
+  <button type="button" id="computer" class="btn computer-options">
     computer
   </button>
   <button type="button" id="human" class="btn new-game">
@@ -81,26 +81,35 @@
   </button>
 </div>
 
+<!--easy or hard -->
+<div class="easy-or-hard-computer">
+  <button type="button" id="easy-computer" class="btn new-game">
+    easy
+  </button>
+  <button type="button" id="hard-computer" class="btn new-game">
+    hard
+  </button>
+</div>
 
 <!--game board -->
 <div class="game-board">
     <h4 id="message">your turn <b>Player One</b></h4>
       <div class="row">
-        <div id="0" class="col-xs-3 col-md-4 box border-right border-bottom"></div>
-        <div id="1" class="col-xs-3 col-md-4 box border-right border-bottom"></div>
-        <div id="2" class="col-xs-3 col-md-4 box border-bottom"></div>
+        <div id="0" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div id="1" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div id="2" class="col-xs-4 col-md-4 box border-bottom"></div>
       </div>
 
       <div class="row">
-        <div  id="3" class="col-xs-3 col-md-4 box border-right border-bottom"></div>
-        <div  id="4" class="col-xs-3 col-md-4 box border-right border-bottom"></div>
-        <div  id="5" class="col-xs-3 col-md-4 box border-bottom"></div>
+        <div  id="3" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div  id="4" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div  id="5" class="col-xs-4 col-md-4 box border-bottom"></div>
       </div>
 
       <div class="row">
-        <div id="6" class="col-xs-3 col-md-4 box border-right"></div>
-        <div id="7" class="col-xs-3 col-md-4 box border-right"></div>
-        <div id="8" class="col-xs-3 col-md-4 box"></div>
+        <div id="6" class="col-xs-4 col-md-4 box border-right"></div>
+        <div id="7" class="col-xs-4 col-md-4 box border-right"></div>
+        <div id="8" class="col-xs-4 col-md-4 box"></div>
       </div>
 </div>
 
@@ -121,7 +130,7 @@
 </div>
 
 <!--change password button-->
-<button type="button" class="btn" data-toggle="modal" data-target="#change-password-modal">
+<button type="button" class="btn change-password-btn" data-toggle="modal" data-target="#change-password-modal">
   change password
 </button>
 
