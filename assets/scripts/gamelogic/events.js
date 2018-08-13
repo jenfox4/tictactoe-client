@@ -16,6 +16,7 @@ const onBoardClick = function (event) {
   if (store.over) {
     return
   }
+  console.log('onBoard click still going')
   const index = event.target.id
   // finds id of div player has clicked, same as index in array
   const value = player
@@ -39,9 +40,14 @@ const onBoardClick = function (event) {
   console.log('store.over', store.over)
   api.updateGame(index, value, store.over)
     .then(ui.placeXOrO(index, player),
+      console.log('on board click ui then working'),
+      console.log('store.winner', store.winner),
       ui.winStatus(store.over, store.winner))
     .catch(ui.updateGameFail)
   // console.log(index, value, over)
+  if (store.over === false && store.opponent === 'human') {
+    switchPlayer()
+  }
 }
 
 const switchPlayer = function (event) {
@@ -59,11 +65,10 @@ const compOrHuman = function (event) {
   if (store.opponent === 'human') {
     console.log('human in compOrHuman')
     onBoardClick(event)
-    switchPlayer()
   } else if (store.opponent === 'computer') {
     ui.computerGame()
     onBoardClick(event)
-    setTimeout(computer.onComputerBoardClick(), 100000)
+    setTimeout(computer.onComputerBoardClick(), 10000000)
   }
 }
 

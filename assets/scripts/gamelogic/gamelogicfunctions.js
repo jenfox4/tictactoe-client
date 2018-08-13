@@ -46,10 +46,12 @@ const minimumPlays = function (gameBoard) {
   // find all the positions of X
   const oPosition = findPosition(gameBoard, 'o')
   // find all the positions of O
-  if ((xPosition.length + oPosition.length) >= 5) {
+  if ((xPosition.length + oPosition.length) === 9) {
+    return 'draw'
+  } else if ((xPosition.length + oPosition.length) >= 5) {
     // if 5 or more positions have been filled than check to see if anyone has won
     if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
-      // console.log('keep playing')
+      console.log('both loose greater than 5 plays')
       // if noone has won, keep playing
     } else if (checkWinningCondition(xPosition) === 'win') {
       return 'x'
@@ -61,8 +63,6 @@ const minimumPlays = function (gameBoard) {
   } else if ((xPosition.length + oPosition.length) < 5) {
     // console.log('keep playing')
     // if less than 5 moves have been played, keep playing
-  } else if ((xPosition.length + oPosition.length) === 9 && checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
-    return 'draw'
   }
 }
 
@@ -115,20 +115,20 @@ const computer = function (array) {
 
 const checkWinning = function (player) {
   if (minimumPlays(store.gameBoard) === 'x') {
-    store.winner = 'Player One'
+    store.winner = 'x'
     store.over = true
     player = 'x'
     // finds all the 'x' on board and determines winner
     // resets internal board
   } else if (minimumPlays(store.gameBoard) === 'o') {
-    store.winner = 'Player Two'
+    store.winner = 'o'
     store.over = true
     player = 'x'
     // finds all the 'o' on board and determines winner
     store.gameBoard = ['', '', '', '', '', '', '', '', '']
     // resets internal board
   } else if (minimumPlays(store.gameBoard) === 'draw') {
-    store.winner = ('Its a draw')
+    store.winner = ('Its a draw, no one')
     store.over = true
     player = 'x'
     store.gameBoard = ['', '', '', '', '', '', '', '', '']

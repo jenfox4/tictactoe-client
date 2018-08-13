@@ -21,7 +21,6 @@ const onComputerBoardClick = function () {
   // finds id of div player has clicked, same as index in array
   const value = player
   // finds which player is currently being played
-  let winner = null
   if (store.gameBoard[index] === '') {
     console.log(store.gameBoard)
     store.gameBoard[index] = player
@@ -32,7 +31,7 @@ const onComputerBoardClick = function () {
     // if div is taken, cannot do that move
   }
   api.updateGame(index, value, store.over)
-    .then(ui.winStatus(store.over, winner))
+    .then(ui.winStatus(store.over, store.winner))
     .catch(ui.updateGameFail)
 }
 
