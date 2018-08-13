@@ -1,18 +1,18 @@
-Tic Tac Toe Game-- Project One by Jen Fox WDI cohort 26
+# Tic Tac Toe Game-- Project One by Jen Fox WDI cohort 26
 
-Technologies Used:
+## Technologies Used:
 
-AJAX
-Javascript
-HTML
-CSS
-Sass
-Bootstrap
-Tic Tac Toe API
-Minimax Game Theory Algorithm and simple artificial intelligence
+- AJAX
+- Javascript
+- HTML
+- CSS
+- Sass
+- Bootstrap
+- Tic Tac Toe API
+- Minimax Game Theory Algorithm and simple artificial intelligence
 
 
-Planning and development process:
+## Planning and development process:
 
 I organized the structure of my documents first. I started by breaking down the project into various smaller projects: the authentication API interaction, the game API interaction, the game logic, the user interface, and the computer/AI logic. Then, I created folders and documents named after those various smaller projects. I begin by working on the game logic. Then, I worked on the authentication API interaction and then the game API interaction. Finally, I put it together with a user interface and then worked on the computer/AI logic.
 
@@ -25,7 +25,7 @@ The first thing I did to figure out how to write the Minimax Algorithm was do it
 It was exhilarating to see the computer slowly get better and make better choices as I evolved my code to be more complex. I have a long way to go and I know there are more efficient ways to write recursives than nested loops, but the process of creating a computer that can make decisions was invigorating.
 
 
-Future intentions:
+## Future intentions:
 
 Looking through my code post functionability, I realize how overdone much of the code is. There are nested for loops when there could be recursions. There are for loops when I could use for each. Frankly, it looks like spaghetti code. My future intentions are to clean up the code to make sure it is as precise and to the point that it can be while not being so short it’s unreadable.
 
@@ -34,7 +34,7 @@ Now that I have a grasp on the Minimax Algorithm, I would like to improve upon i
 I would also like to work on the multiplayer API. I would like my game to be played through multiple devices.
 
 
-Wireframes and User stories:
+## Wireframes and User stories:
 
 User stories for Tic Tac Toe:
 -As a competitive user, I want to keep score and know my winning streak.
@@ -43,7 +43,7 @@ User stories for Tic Tac Toe:
 -As a designer, I want a sleek interface with not too many flashy things.
 -As an iphone lover, I want a responsive webpage that plays on my phone.
 
-UI sketches from moqups attached. 
+UI sketches from moqups attached.
 ![change password](https://media.git.generalassemb.ly/user/15464/files/d181dfd4-9af0-11e8-9521-ca02f6fdf05b)
 ![error message](https://media.git.generalassemb.ly/user/15464/files/d19420d6-9af0-11e8-809a-034756234dd4)
 ![game over](https://media.git.generalassemb.ly/user/15464/files/d1a18f0a-9af0-11e8-9222-fd2cb62b0739)
