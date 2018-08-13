@@ -65,10 +65,14 @@ const compOrHuman = function (event) {
   if (store.opponent === 'human') {
     console.log('human in compOrHuman')
     onBoardClick(event)
-  } else if (store.opponent === 'computer') {
+  } else if (store.opponent === 'easy-computer') {
     ui.computerGame()
     onBoardClick(event)
-    setTimeout(computer.onComputerBoardClick(), 10000000)
+    setTimeout(computer.easyComputerPlaying(), 10000000)
+  } else if (store.opponent === 'hard-computer') {
+    ui.computerGame()
+    onBoardClick(event)
+    computer.hardComputerPlaying()
   }
 }
 

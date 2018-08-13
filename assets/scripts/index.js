@@ -24,8 +24,6 @@ $(() => {
   // start new game when refresh button is hit
   $('.glyphicon-refresh').on('click', gameEvents.refresh)
 
-  // start new game when signing in
-
   // when log out is clicked, go back to home page
   $('.glyphicon-log-out').on('click', authEvents.logOut)
 
