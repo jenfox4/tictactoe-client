@@ -35,7 +35,6 @@ const changePasswordSuccess = function (response) {
   $('.message').text('Your password has now been updated.')
   $('.message').removeClass('fail')
   $('.message').addClass('success')
-  console.log($('#change-password').val(''))
   $('input').val('')
 }
 
@@ -48,7 +47,6 @@ const logOutSuccess = function (response) {
   $('.past-games-list').empty()
   $('#wins').empty()
   $('.score').hide()
-  console.log($('.box').html())
   $('.box').empty()
   $('.game-board').removeClass('computer')
   $('.game-board').removeClass('human')

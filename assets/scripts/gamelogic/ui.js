@@ -69,9 +69,7 @@ const updateGameFail = function (response) {
 
 // past games recalled and logged to score
 const pastGames = function (response) {
-  console.log(response.games[0])
   const game = response.games
-  console.log(game.length)
   $('.past-games').hide()
   let counter = 0
   for (let i = 0; i < game.length; i++) {

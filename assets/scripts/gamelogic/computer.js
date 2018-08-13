@@ -19,7 +19,6 @@ const easyComputerPlaying = function () {
   const value = player
   // finds which player is currently being played
   if (store.gameBoard[index] === '') {
-    console.log(store.gameBoard)
     store.gameBoard[index] = player
     ui.placeXOrO(index, player)
     gamelogicfunctions.checkWinning()
@@ -37,21 +36,15 @@ const hardComputerPlaying = function () {
     return
   }
   player = 'o'
-  console.log('gameboard before minimax', store.gameBoard)
   const emptySpaces = minimax.findEmptySpaces(store.gameBoard)
   const index = minimax.bestMoveFinder(minimax.minimax(emptySpaces, store.gameBoard))
-  console.log('best move', index)
   // finds id of div player has clicked, same as index in array
   const value = player
   // finds which player is currently being played
-  console.log('gameboard before play', store.gameBoard)
   store.gameBoard[index] = player
-  console.log('stored game after play', store.gameBoard)
   ui.placeXOrO(index, player)
   minimax.clearMoves(minimax.moves)
   gamelogicfunctions.checkWinning()
-  console.log(gamelogicfunctions.checkWinning())
-  console.log(minimax.moves)
   api.updateGame(index, value, store.over)
     .then(ui.winStatus(store.over, store.winner))
     .catch(ui.updateGameFail)
