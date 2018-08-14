@@ -15,6 +15,7 @@ const fail = function (response) {
   $('.message').text('Hmmm...that didnt go so well. Please try again.')
   $('.message').removeClass('fail')
   $('.message').addClass('fail')
+  $('input').val('')
 }
 
 const signInSuccess = function (response) {
