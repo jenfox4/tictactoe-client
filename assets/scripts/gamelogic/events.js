@@ -16,19 +16,16 @@ const onBoardClick = function (event) {
     return
   }
   const index = event.target.id
-  console.log('event target id', event.target.id)
   // finds id of div player has clicked, same as index in array
   const value = player
   // finds which player is currently being played
   // later used to let ui know which winner to log
   if (store.gameBoard[index] === '') {
-    console.log('spot not taken', (store.gameBoard[index] === ''))
     store.invalid = false
     store.gameBoard[index] = player
     // ui.placeXOrO(index, player)
     gamelogicfunctions.checkWinning(player)
   } else if (store.gameBoard[index] !== '') {
-    console.log('spot is taken', (store.gameBoard[index] !== ''))
     ui.invalidMove()
     store.invalid = true
     return

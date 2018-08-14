@@ -51,7 +51,7 @@ const minimumPlays = function (gameBoard) {
   } else if ((xPosition.length + oPosition.length) >= 5) {
     // if 5 or more positions have been filled than check to see if anyone has won
     if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
-      console.log('both loose greater than 5 plays')
+    //  console.log('both loose greater than 5 plays')
       // if noone has won, keep playing
     } else if (checkWinningCondition(xPosition) === 'win') {
       return 'x'

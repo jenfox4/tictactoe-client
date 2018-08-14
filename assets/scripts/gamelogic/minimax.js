@@ -54,6 +54,7 @@ const minimax = function (emptySpaces, gameBoard) {
     moves.push(newMove)
     // console.log('possible spots for current move by x to test', emptySpaces)
     gameBoard[emptySpaces[0]] = 'o'
+  //  console.log('after adding', gameBoard)
     // console.log('\nmoving x to spot ',  emptySpaces[0], ' for testing')
     if (winning(gameBoard, 'o') === true) {
       moves[moveNumber].score += 10
@@ -154,6 +155,7 @@ const minimax = function (emptySpaces, gameBoard) {
       gameBoard[newEmptySpaces[i]] = ''
     }
     gameBoard[emptySpaces[0]] = ''
+  //  console.log('and deleting', gameBoard)
     emptySpaces.splice([0], 1)
   }
   return moves
