@@ -13,7 +13,7 @@ if (window.location.hostname === 'localhost') {
 }
 
 const imgUrl = {
-  bigBen: './images/png/big-ben.png',
+  bigBen: './public/images/png/big-ben.png',
   blueMosque: './images/png/blue-mosque.png',
   bridge: './images/png/bridge.png',
   burj: './images/png/burj-al-arab.png',
