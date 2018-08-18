@@ -38,11 +38,16 @@ const invalidMove = function () {
 // new game created on log-in, choose between human or computer
 const newGameSuccess = function (response) {
   store.game = response.game
+  $('.box').empty()
+  $('.row').show()
+  $('#message').html('your turn <b>Player One</b>')
+  $('#wins').empty()
   $('.game-board').show()
+  $('.refresh').show()
   $('.useroptions').show()
   $('.comp-human').hide()
   $('.easy-or-hard-computer').hide()
-  $('.past-games').show()
+  $('.welcome').hide()
 }
 
 // refresh button to continue playing
@@ -51,9 +56,7 @@ const refresh = function (response) {
   $('.box').empty()
   $('.row').show()
   $('#message').html('your turn <b>Player One</b>')
-  $('.past-games-list').empty()
   $('#wins').empty()
-  $('.score').hide()
 }
 
 // new game api call has failed
@@ -70,14 +73,20 @@ const updateGameFail = function (response) {
 // past games recalled and logged to score
 const pastGames = function (response) {
   const game = response.games
-  $('.past-games').hide()
-  let counter = 0
+  let wins = 0
+  let lost = 0
   for (let i = 0; i < game.length; i++) {
     if (gamelogicfunctions.minimumPlays(game[i].cells) === 'x') {
-      counter += 1
+      wins += 1
     }
-    $('.past-games-list').append('<li> ID: ' + game[i].id + ', Plays: ' + game[i].cells + '</li>')
-  } $('#wins').text('You have won ' + counter + ' times!')
+  }
+  for (let i = 0; i < game.length; i++) {
+    if (gamelogicfunctions.minimumPlays(game[i].cells) === 'o') {
+      lost += 1
+    }
+  }
+  $('#wins').text('You have won ' + wins + ' times!')
+  $('#lost').text('You have lost ' + lost + ' times.')
 }
 
 // if calling games fails
@@ -88,6 +97,12 @@ const failGames = function () {
 const computerOptions = function () {
   $('.comp-human').hide()
   $('.easy-or-hard-computer').show()
+}
+
+const startGame = function () {
+  $('.comp-human').show()
+  $('.icon-message').hide()
+  $('.start-game').hide()
 }
 
 module.exports = {
@@ -102,5 +117,6 @@ module.exports = {
   failGames,
   invalidMove,
   computerGame,
-  computerOptions
+  computerOptions,
+  startGame
 }

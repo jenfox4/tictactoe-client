@@ -52,6 +52,10 @@ const switchPlayer = function (event) {
   }
 }
 
+const startGame = function () {
+  ui.startGame()
+}
+
 const compOrHuman = function (event) {
   if (store.opponent === 'human') {
     onBoardClick(event)
@@ -69,6 +73,9 @@ const compOrHuman = function (event) {
 // creates new game in api and has ui respond
 const createNewGame = function (event) {
   store.opponent = event.target.id
+  player = 'x'
+  store.over = false
+  store.gameBoard = ['', '', '', '', '', '', '', '', '']
   api.createNewGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)
@@ -102,5 +109,6 @@ module.exports = {
   refresh,
   pastGames,
   compOrHuman,
-  computerOptions
+  computerOptions,
+  startGame
 }

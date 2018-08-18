@@ -22,10 +22,10 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
 
   // start new game when refresh button is hit
-  $('.glyphicon-refresh').on('click', gameEvents.refresh)
+  $('.refresh').on('click', gameEvents.refresh)
 
   // when log out is clicked, go back to home page
-  $('.glyphicon-log-out').on('click', authEvents.logOut)
+  $('.log-out').on('click', authEvents.logOut)
 
   // when password changed form, submitted
   $('#change-password').on('submit', authEvents.changePassword)
@@ -39,6 +39,12 @@ $(() => {
   // after choosing computer, show easy or hard useroptions
   $('.computer-options').on('click', gameEvents.computerOptions)
 
-  $('.past-games').on('click', gameEvents.pastGames)
+  $('.player-stats').on('click', gameEvents.pastGames)
+
+  $('.start-game').on('click', gameEvents.startGame)
+
+  $('.world-wonders').on('click', authEvents.onChangePlayerModal)
+
+  $('.choose-opponent').on('click', authEvents.chooseOpponent)
 }
 )

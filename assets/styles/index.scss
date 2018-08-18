@@ -2,15 +2,55 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import './colors';
 
-body {
+.content {
   background-color: $background-color;
-  margin: 40px auto;
-  max-width: 700px;
+  margin: 10px auto;
+  max-width: 800px;
   text-align: center;
 }
 
+.navbar {
+  margin: 0;
+  width: 100%;
+}
+
+#menu {
+  display: none;
+}
+
+#log-out {
+  display: none;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  p {
+    font-size: $fontsize;
+    margin: 0;
+    padding: 15px;
+  }
+}
+
+.welcome {
+  margin: 0;
+}
+
+.front-page {
+  padding: 80px 10px 80px 0;
+  img {
+    padding: 10px;
+  }
+}
+
+.world-wonders {
+  height: $iconheight;
+  width: $iconwidth;
+}
+
 h1 {
-  color: $white;
+  color: $fontcolor;
   padding: 20px;
 }
 
@@ -18,16 +58,10 @@ h1 {
   align-self: center;
   background-color: $blue;
   border: 1px solid $border-color;
-  color: $white;
+  color: $fontcolor;
   font-size: $btnfontsize;
   margin: 10px;
   width: 30%;
-}
-
-.signin-signup {
-  display: flex;
-  // display: none;
-  flex-direction: column;
 }
 
 .comp-human {
@@ -41,7 +75,7 @@ h1 {
 .game-board {
   display: none;
   #message {
-    color: $white;
+    color: $fontcolor;
     padding: 30px;
   }
 
@@ -64,7 +98,7 @@ h1 {
   }
 
   p {
-    color: $yellow;
+    color: $blue;
     font-size: $xofontsize;
     margin: 0;
     padding: 0;
@@ -72,7 +106,7 @@ h1 {
 }
 
 .score {
-  color: $white;
+  color: $fontcolor;
   display: none;
 
   li {
@@ -85,18 +119,22 @@ h1 {
   // display: flex;
   flex-direction: column;
   padding: 30px;
+}
 
-  .icons {
-    display: flex;
-    flex-direction: row;
-    font-size: $fontsize;
-    justify-content: center;
-  }
+.choose-player {
+    display: none;
+}
 
-  .glyphicon {
-    color: $blue;
-    padding: 20px;
-    }
+.icon {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5em;
+  justify-content: center;
+}
+
+.sm-icon {
+  height: 50px;
+  width: 50px;
 }
 
 .success {
@@ -107,16 +145,27 @@ h1 {
   color: $red;
 }
 
+.refresh {
+  display: none;
+  margin: 10px 0 0 0;
+}
+
+.player-choice {
+  width: 250px;
+}
+
+.list {
+  p {
+    font-size: 1em;
+    text-align: left;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .btn {
     font-size: 1.2em;
     width: 45%;
   }
-
-  .change-password-btn {
-    font-size: 0.8em;
-    width: 50%;
-    }
 
   .score {
     font-size: 0.8em;

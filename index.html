@@ -11,16 +11,83 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
 
-<h1>Tic Tac Toe</h1>
+<body>
+<!-- nav bar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand">Across the universe</p>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="signin-signup">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register/ Log In <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a data-toggle="modal" data-target="#sign-in-modal">Log In</a></li>
+            <li><a data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+          </ul>
+        </li>
+        <li id="menu">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>
+          <li><a class="player-stats" data-toggle="modal" data-target="#player-stats-modal">Player stats</a></li>
+          <li><a class="choose-opponent">Change Opponent</a></li>
+        </ul>
+        </li>
+        <li id="log-out"><a class="log-out">Sign Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
+<div class="content">
 
-<div class="signin-signup">
-<!-- Sign up button -->
-<button type="button" class="btn" data-toggle="modal" data-target="#sign-up-modal">
-  sign up
+<div class="welcome">
+<h1>Welcome to Across The Universe</h1>
+<h4> A travel themed tic tac toe game</h4>
+</div>
+
+<div class="front-page">
+  <img style="height:150px" src="./images/png/big-ben.png">
+  <img style="height:150px" src="./images/png/moai.png">
+  <img style="height:150px" src="./images/png/blue-mosque.png">
+  <img style="height:150px" src="./images/png/petra.png">
+  <img style="height:150px" src="./images/png/pyramid.png">
+</div>
+
+<button type="button" class="btn signin-signup" data-toggle="modal" data-target="#sign-in-modal">
+  Log In
 </button>
+
+<div class="choose-player">
+<div class="icon">
+  <img alt="player 1" data-player="1" data-toggle="modal" data-target="#world-wonder-choose" class="world-wonders" src="./images/png/big-ben.png">
+  <p>vs</p>
+  <img alt="player 2" data-player="2" data-toggle="modal" data-target="#world-wonder-choose" class="world-wonders" class="world-wonders" src="./images/png/moai.png">
+</div>
+
+<h3 class="icon icon-message">Choose your world wonder by clicking on the icon</h3>
+
+<button type="button" class="btn start-game">
+  start game
+</button>
+
+</div>
+
+<!-- pick icons modal -->
+<div class="modal fade" id="world-wonder-choose" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog player-choice modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Choose a world wonder</h5>
+      </div>
+      <div class="modal-body list">
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Sign up modal -->
 <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -44,10 +111,6 @@
   </div>
 </div>
 
-<!--sign in button-->
-<button type="button" class="btn" data-toggle="modal" data-target="#sign-in-modal">
-  sign in
-</button>
 
 <!-- Sign in modal -->
 <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -68,7 +131,6 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!--computer or human -->
@@ -113,26 +175,26 @@
       </div>
 </div>
 
-<!--show past games and scores -->
-<div class="score">
-  <p id="wins"></p>
-  <div class="past-games-list"></div>
-  <button type="button" class="btn past-games">
-    see all past games
-  </button>
-</div>
-
-<!-- user options buttons -->
-<div class="useroptions">
-  <div class="icons">
-    <span class="glyphicon glyphicon-refresh"></span>
-    <span class="glyphicon glyphicon-log-out"></span>
-</div>
-
-<!--change password button-->
-<button type="button" class="btn change-password-btn" data-toggle="modal" data-target="#change-password-modal">
-  change password
+<button type="button" class="btn refresh">
+  replay
 </button>
+
+
+<!-- player stats -->
+<div class="modal fade" id="player-stats-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Player history</h5>
+      </div>
+      <div class="modal-body">
+        <h5 id="wins"></h5>
+        <h5 id="lost"></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- change password modal -->
 <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -154,7 +216,6 @@
     </div>
   </div>
 </div>
-
 
 </div>
     </body>

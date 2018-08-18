@@ -3,6 +3,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const store = require('./../store.js')
+const config = require('./../config.js')
 
 // function that retrieves from api and changes UI
 const onSignUp = function (event) {
@@ -45,9 +46,26 @@ const changePassword = function (event) {
     .catch(ui.fail)
 }
 
+const onChangePlayerModal = function () {
+  $('.list').html('')
+  let listOfWonders = ''
+  for (const imgName in config.imgUrl) {
+    const image = config.imgUrl[imgName]
+    listOfWonders += `<p><span><img class="sm-icon" src="${image}"  alt="world-wonder"></span>  ${config.iconNames[imgName]}</p>`
+  }
+  $('.list').append(listOfWonders)
+}
+
+const chooseOpponent = function () {
+  console.log('reaching events')
+  ui.chooseOpponent()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   logOut,
-  changePassword
+  changePassword,
+  onChangePlayerModal,
+  chooseOpponent
 }
