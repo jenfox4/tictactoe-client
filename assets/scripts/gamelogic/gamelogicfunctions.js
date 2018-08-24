@@ -109,7 +109,7 @@ const checkWinning = function (player) {
     store.gameBoard = ['', '', '', '', '', '', '', '', '']
     // resets internal board
   } else if (minimumPlays(store.gameBoard) === 'draw') {
-    store.winner = ('Its a draw, no one')
+    store.winner = ('draw')
     store.over = true
     player = 'x'
     store.gameBoard = ['', '', '', '', '', '', '', '', '']

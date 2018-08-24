@@ -27,10 +27,15 @@ const switchPlayer = function (str) {
 const winStatus = function (over, winner) {
   if (over) {
     $('.score').show()
-    $('#message').html(winner + ' wins!')
+    if (winner === 'x') {
+      $('#message').html(`${config.iconNames.player1}` + ' wins!')
+    } else if (winner === 'o') {
+      $('#message').html(`${config.iconNames.player2}` + ' wins!')
+    } else if (winner === 'draw') {
+      $('#message').html("It's a draw. no one wins.")
+    }
   }
 }
-
 const computerGame = function () {
   $('#message').html('')
 }
