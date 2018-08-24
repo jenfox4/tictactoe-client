@@ -57,7 +57,6 @@ const onChangePlayerModal = function () {
 }
 
 const chooseOpponent = function () {
-  console.log('reaching events')
   ui.chooseOpponent()
 }
 

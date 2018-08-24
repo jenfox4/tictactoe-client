@@ -14,29 +14,12 @@ const findPosition = function (gameBoard, gamePiece) {
   } return position
 }
 
-/* const findPositionOfO = function (gameBoard) {
-// find all the O's on the board
-  const positionOfO = []
-  // array of index position of X
-  const elementO = 'O'
-  // looking for the game piece X
-  let idx = gameBoard.indexOf(elementO)
-  while (idx !== -1) {
-  // while X is found in the string (not -1), keep looking.
-    positionOfO.push(idx)
-    // if an x position is found, push to positionOfX array
-    idx = gameBoard.indexOf(elementO, idx + 1)
-    // find next position of x by starting the search from the last x + 1 index
-  } return positionOfO
-} */
-
 // function to place X or O in spot in the board
 const play = function (player, positionToPutPiece, gameBoard) {
   // player = x or o, positionToPutPiece is an index number, gameBoard is the board
   if (gameBoard[positionToPutPiece] === '') {
     gameBoard[positionToPutPiece] = player
   } else {
-    // console.log('sorry that space is taken')
   }
 }
 
@@ -51,7 +34,6 @@ const minimumPlays = function (gameBoard) {
   } else if ((xPosition.length + oPosition.length) >= 5) {
     // if 5 or more positions have been filled than check to see if anyone has won
     if (checkWinningCondition(xPosition) === 'lose' && checkWinningCondition(oPosition) === 'lose') {
-    //  console.log('both loose greater than 5 plays')
       // if noone has won, keep playing
     } else if (checkWinningCondition(xPosition) === 'win') {
       return 'x'
@@ -61,7 +43,6 @@ const minimumPlays = function (gameBoard) {
       // if o win return win for x
     }
   } else if ((xPosition.length + oPosition.length) < 5) {
-    // console.log('keep playing')
     // if less than 5 moves have been played, keep playing
   }
 }

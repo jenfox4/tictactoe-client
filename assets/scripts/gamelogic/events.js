@@ -35,7 +35,6 @@ const onBoardClick = function (event) {
     .then(ui.placeXOrO(index, player),
       ui.winStatus(store.over, store.winner))
     .catch(ui.updateGameFail)
-  // console.log(index, value, over)
   if (store.over === false && store.opponent === 'human') {
     switchPlayer()
   }

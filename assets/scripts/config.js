@@ -13,9 +13,9 @@ if (window.location.hostname === 'localhost') {
 }
 
 const imgUrl = {
-  bigBen: './public/images/png/big-ben.png',
+  player1: './public/images/png/big-ben.png',
+  player2: './public/images/png/bridge.png',
   blueMosque: './public/images/png/blue-mosque.png',
-  bridge: './public/images/png/bridge.png',
   burj: './public/images/png/burj-al-arab.png',
   castle: './public/images/png/castle.png',
   stBasil: './public/images/png/cathedral-of-saint-basil.png',
@@ -39,9 +39,9 @@ const imgUrl = {
 }
 
 const iconNames = {
-  bigBen: 'The Big Ben',
+  player1: 'The Big Ben',
+  player2: 'Venice',
   blueMosque: 'The Blue Mosque',
-  bridge: 'Venice',
   burj: 'The Burj Dubai',
   castle: 'Castle',
   stBasil: 'Cathedral of Saint Basil',

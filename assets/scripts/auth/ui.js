@@ -31,8 +31,6 @@ const signInSuccess = function (response) {
   $('input').val('')
   store.user = response.user
   $('.welcome').html('<h1> Across The Universe </h1>')
-  // console.log('auth, sign in', store.user)
-  // console.log('auth, sign in', store.user.token)
 }
 
 const changePasswordSuccess = function (response) {
@@ -69,7 +67,6 @@ const logOutFail = function (response) {
 }
 
 const chooseOpponent = function () {
-  console.log('reaching ui')
   $('.comp-human').show()
   $('.game-board').removeClass('computer')
   $('.game-board').removeClass('human')
@@ -79,22 +76,6 @@ const chooseOpponent = function () {
   $('.game-board').hide()
 }
 
-/*
-const text = ['', '', '']
-const elem = document.getElementById("changeText")
-
-const funFacts = function () {
-  const counter = 0
-  for (let i = 0; i < config.fact.length; i++) {
-    const fact = config.fact[counter]
-    counter++
-  }
-  if (counter >= config.fact.length) {
-    counter = 0
-    // clearInterval(inst); // uncomment this if you want to stop refreshing after one cycle
-  }
-}
-*/
 module.exports = {
   signUpSuccess,
   fail,

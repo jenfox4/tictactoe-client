@@ -1,10 +1,15 @@
 // User interface changes for game logic
 const store = require('./../store.js')
 const gamelogicfunctions = require('./gamelogicfunctions.js')
+const config = require('./../config.js')
 
 // places x or o in div
 const placeXOrO = function (id, player) {
-  $('#' + id).html('<p>' + player + '</p>')
+  if (player === 'x') {
+    $('#' + id).html(`<img class="world-wonders" src="${config.imgUrl.player1}">`)
+  } else if (player === 'o') {
+    $('#' + id).html(`<img class="world-wonders" src="${config.imgUrl.player2}">`)
+  }
 }
 
 // switches the player message displayed

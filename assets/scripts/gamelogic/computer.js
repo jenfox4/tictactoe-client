@@ -39,15 +39,11 @@ const hardComputerPlaying = function () {
   const emptySpaces = minimax.findEmptySpaces(store.gameBoard)
   const index = minimax.bestMoveFinder(minimax.minimax(emptySpaces, store.gameBoard))
   // finds id of div player has clicked, same as index in array
-  console.log('best move', index)
   const value = player
   // finds which player is currently being played
-  console.log('before player added', store.gameBoard)
   store.gameBoard[index] = player
-  console.log('player added', store.gameBoard)
   ui.placeXOrO(index, player)
   minimax.clearMoves(minimax.moves)
-  console.log('who wins', gamelogicfunctions.checkWinning())
   gamelogicfunctions.checkWinning()
   api.updateGame(index, value, store.over)
     .then(ui.winStatus(store.over, store.winner))
