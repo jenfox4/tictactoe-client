@@ -46,12 +46,13 @@ const changePassword = function (event) {
     .catch(ui.fail)
 }
 
-const onChangePlayerModal = function () {
+const onChangePlayerModal = function (event) {
+  const iconPlayer = event.target.id
   $('.list').html('')
   let listOfWonders = ''
   for (const imgName in config.imgUrl) {
     const image = config.imgUrl[imgName]
-    listOfWonders += `<p><span><img class="sm-icon" src="${image}"  alt="world-wonder"></span>  ${config.iconNames[imgName]}</p>`
+    listOfWonders += `<p><span><img id="${config.iconNames[imgName]}" class="sm-icon ${iconPlayer}" src="${image}"  alt="world-wonder"></span>  ${config.iconNames[imgName]}</p>`
   }
   $('.list').append(listOfWonders)
 }

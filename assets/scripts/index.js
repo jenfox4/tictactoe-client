@@ -46,5 +46,7 @@ $(() => {
   $('.world-wonders').on('click', authEvents.onChangePlayerModal)
 
   $('.choose-opponent').on('click', authEvents.chooseOpponent)
+
+  $('.list').on('click', 'p', gameEvents.choosePlayerIcon)
 }
 )

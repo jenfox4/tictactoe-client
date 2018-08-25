@@ -6,6 +6,7 @@ const ui = require('./ui.js')
 const store = require('./../store.js')
 const gamelogicfunctions = require('./gamelogicfunctions.js')
 const computer = require('./computer.js')
+const config = require('./../config.js')
 
 // game should always start with player 1 being X
 let player = 'x'
@@ -101,6 +102,19 @@ const computerOptions = function () {
   ui.computerOptions()
 }
 
+const choosePlayerIcon = function (event) {
+  const hasClass = $(event.target).hasClass('player1')
+  let playerIcon = null
+  if (hasClass) {
+    playerIcon = 'player1'
+  } else {
+    playerIcon = 'player2'
+  }
+  const newIcon = config.imgUrl[playerIcon] = event.target.src
+  config.iconNames[playerIcon] = event.target.id
+  ui.changePlayerIcon(newIcon, playerIcon)
+}
+
 module.exports = {
   onBoardClick,
   switchPlayer,
@@ -109,5 +123,6 @@ module.exports = {
   pastGames,
   compOrHuman,
   computerOptions,
-  startGame
+  startGame,
+  choosePlayerIcon
 }
