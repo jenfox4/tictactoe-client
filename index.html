@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Jen's Tic Tac Toe Project</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+<body>
+<!-- nav bar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand">Across the universe</p>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="signin-signup">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register/ Log In <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a data-toggle="modal" data-target="#sign-in-modal">Log In</a></li>
+            <li><a data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+          </ul>
+        </li>
+        <li id="menu">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>
+          <li><a class="player-stats" data-toggle="modal" data-target="#player-stats-modal">Player stats</a></li>
+          <li><a class="choose-opponent">Change Opponent</a></li>
+        </ul>
+        </li>
+        <li id="log-out"><a class="log-out">Sign Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="content">
+
+<div class="welcome">
+<h1>Welcome to Across The Universe</h1>
+<h4> A travel themed tic tac toe game</h4>
+</div>
+
+<div class="front-page">
+  <img src="./public/images/png/big-ben.png">
+  <img src="./public/images/png/moai.png">
+  <img src="./public/images/png/blue-mosque.png">
+  <img src="./public/images/png/petra.png">
+  <img src="./public/images/png/pyramid.png">
+</div>
+
+<div class="login_buttons">
+<button type="button" class="btn signin-signup" data-toggle="modal" data-target="#sign-in-modal">
+  Log In
+</button>
+<button type="button" class="btn signin-signup" data-toggle="modal" data-target="#sign-up-modal">
+  Create an account
+</button>
+</div>
+
+<div class="choose-player">
+<div class="icon">
+  <img id="player1" alt="player 1" data-player="1" data-toggle="modal" data-target="#world-wonder-choose" class="world-wonders" src="./public/images/png/big-ben.png">
+  <p>vs</p>
+  <img id="player2" alt="player 2" data-player="2" data-toggle="modal" data-target="#world-wonder-choose" class="world-wonders" class="world-wonders" src="./public/images/png/bridge.png">
+</div>
+
+<h3 class="icon icon-message">Choose your world wonder by clicking on the icon</h3>
+
+<button type="button" class="btn start-game">
+  start game
+</button>
+
+</div>
+
+<!-- pick icons modal -->
+<div class="modal fade" id="world-wonder-choose" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog player-choice modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Choose a world wonder</h5>
+      </div>
+      <div class="modal-body list">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sign up modal -->
+<div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="sign-up-title" class="modal-title">Sign up to play!</h5>
+      </div>
+      <div class="modal-body">
+        <p class="message"></p>
+        <form class="border" id="sign-up">
+        <fieldset>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <button type="submit" class="btn">sign up</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Sign in modal -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign into your account to play!</h5>
+      </div>
+      <div class="modal-body">
+        <p class="message"></p>
+        <form class="border" id="sign-in">
+        <fieldset>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+            <button type="submit" class="btn">sign in</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--computer or human -->
+<div class="comp-human">
+  <button type="button" id="computer" class="btn computer-options">
+    computer
+  </button>
+  <button type="button" id="human" class="btn new-game">
+    human
+  </button>
+</div>
+
+<!--easy or hard -->
+<div class="easy-or-hard-computer">
+  <button type="button" id="easy-computer" class="btn new-game">
+    easy
+  </button>
+  <button type="button" id="hard-computer" class="btn new-game">
+    hard
+  </button>
+</div>
+
+<!--game board -->
+<div class="game-board">
+    <h4 id="message">your turn <b>Player One</b></h4>
+      <div class="row">
+        <div id="0" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div id="1" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div id="2" class="col-xs-4 col-md-4 box border-bottom"></div>
+      </div>
+
+      <div class="row">
+        <div  id="3" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div  id="4" class="col-xs-4 col-md-4 box border-right border-bottom"></div>
+        <div  id="5" class="col-xs-4 col-md-4 box border-bottom"></div>
+      </div>
+
+      <div class="row">
+        <div id="6" class="col-xs-4 col-md-4 box border-right"></div>
+        <div id="7" class="col-xs-4 col-md-4 box border-right"></div>
+        <div id="8" class="col-xs-4 col-md-4 box"></div>
+      </div>
+</div>
+
+<button type="button" class="btn refresh">
+  replay
+</button>
+
+
+<!-- player stats -->
+<div class="modal fade" id="player-stats-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Player history</h5>
+      </div>
+      <div class="modal-body">
+        <h5 id="wins"></h5>
+        <h5 id="lost"></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- change password modal -->
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Change your password</h5>
+      </div>
+      <div class="modal-body">
+        <p class="message"></p>
+        <form class="border" id="change-password">
+        <fieldset>
+          <input type="password" name="passwords[old]" placeholder="Old password">
+          <input type="password" name="passwords[new]" placeholder="New password">
+            <button type="submit" class="btn">submit</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+    </body>
+</html>
