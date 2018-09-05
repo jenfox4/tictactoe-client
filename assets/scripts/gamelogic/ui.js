@@ -115,6 +115,7 @@ const startGame = function () {
   $('.start-game').hide()
 }
 
+
 const changePlayerIcon = function (imageToChange, player) {
   $(`#${player}`).attr('src', imageToChange)
   $('#world-wonder-choose').modal('toggle')
